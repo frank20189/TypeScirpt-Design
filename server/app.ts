@@ -11,9 +11,12 @@ import bodyParse from "body-parser";
 
 const app: Application = express();
 
+// 配置post方法传递参数的类型
 app.use(bodyParse.urlencoded({ extended: true }));
+// 解析json格式
 app.use(bodyParse.json());
 
+// 配置跨域
 app.all("*", (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-methods", "POST,GET,PUT,DELETE,OPTIONS");
